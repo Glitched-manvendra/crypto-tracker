@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Crypto Realtime Prices</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="title-group">
+        <h1>Crypto Tracker</h1>
+        <p class="muted">Realtime prices — updates every 10 seconds</p>
+      </div>
+      <div class="controls">
+        <input id="search" placeholder="Search coin (name or symbol)" />
+        <div id="last-updated" class="muted">Last updated: —</div>
+        <div class="theme-toggle">
+          <label>
+            <input id="theme-toggle" type="checkbox" />
+            <span>Light</span>
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="table-wrap">
+        <table id="coins-table" class="coins-table">
+          <thead>
+            <tr>
+              <th data-key="rank">#</th>
+              <th data-key="name">Coin</th>
+              <th data-key="price">Price</th>
+              <th data-key="change_24h">24h</th>
+              <th data-key="market_cap">Market Cap</th>
+            </tr>
+          </thead>
+          <tbody id="coins-body">
+            <tr><td colspan="5">Loading…</td></tr>
+          </tbody>
+        </table>
+        <div class="table-footer">
+          <div class="per-page">
+            Show
+            <select id="per-page">
+              <option>10</option>
+              <option selected>25</option>
+              <option>50</option>
+            </select>
+            per page
+          </div>
+          <div class="pagination">
+            <button id="prev-page">Prev</button>
+            <span id="page-info">1 / 1</span>
+            <button id="next-page">Next</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/main.js"></script>
+  </body>
+</html>
